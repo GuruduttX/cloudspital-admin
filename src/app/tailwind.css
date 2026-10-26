@@ -1,0 +1,2 @@
+/* Compile Tailwind separately so custom CSS uses Next.js's native CSS pipeline. */
+@import "tailwindcss";
