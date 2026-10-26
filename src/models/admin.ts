@@ -16,7 +16,7 @@ export interface LoginBucketDocument {
 
 export interface AuditDocument {
   adminId?: ObjectId;
-  action: "login_success" | "login_failure" | "logout" | "view_overview" | "view_directory" | "view_actor" | "view_activity" | "view_actor_records" | "grant_doctor_access" | "revoke_doctor_access";
+  action: "login_success" | "login_failure" | "logout" | "view_overview" | "view_directory" | "view_actor" | "view_activity" | "view_actor_records" | "grant_doctor_access" | "revoke_doctor_access" | "view_enquiries" | "view_enquiry_customer" | "view_enquiry_chat" | "reply_enquiry_chat" | "end_enquiry_chat" | "set_enquiry_status";
   section?: string;
   source?: string;
   actorType?: "doctors" | "patients";

@@ -37,6 +37,7 @@ Login issues an HS256-signed JWT in an HttpOnly, SameSite=Strict cookie (Secure 
 - Tabbed patient workspaces with care history, health records, pod bookings, reminders, family links, emergency profiles, QR scans and sessions.
 - System activity timeline and full-record browsing by source, including retained access views and dose logs.
 - Protected `/api/overview` and `/api/actors?kind=doctors|patients` endpoints.
+- Enquiries (`/enquiries`): website form enquiries (`type: contact|demo`) and live app support chats (`type: support`) from the shared `enquiries` collection. Staff set website follow-up status, reply to and end app chats, and see a waiting badge in the navigation. Replies are signed as `SUPPORT_AGENT_NAME` in `src/config/enquiries.ts`. This is the only feature that writes to a shared collection: every write is a single conditional `updateOne` in `src/db/repositories/enquiries.ts`, and the document format must stay exactly as the website and member app write it.
 - Responsive layout using `public/plainBg.webp` as the background.
 
 Clinical records, prescriptions, emergency profiles, and ABHA identifiers are excluded from directory results. Patients correspond to `members`, including family-linked members. Pods are care locations and are available through the system activity source filter. Full account workspaces expose clinical details only to authenticated administrators; tokens and OTP secrets remain excluded.
